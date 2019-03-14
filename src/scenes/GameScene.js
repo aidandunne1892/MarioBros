@@ -532,23 +532,7 @@ class GameScene extends Phaser.Scene {
             this.score.textObject.alpha = 0;
         }
     }
-
-    cleanUp() {
-        let ignore = ['sys', 'anims', 'cache', 'registry', 'sound', 'textures', 'events', 'cameras', 'make', 'add', 'scene', 'children', 'cameras3d', 'time', 'data', 'input', 'load', 'tweens', 'lights', 'physics'];
-        let whatThisHad = ['sys', 'anims', 'cache', 'registry', 'sound', 'textures', 'events', 'cameras', 'make', 'add', 'scene', 'children', 'cameras3d', 'time', 'data', 'input', 'load', 'tweens', 'lights', 'physics', 'gameplay', 'destinations', 'rooms', 'eightBit', 'music', 'map', 'tileset', 'groundLayer', 'mario', 'enemyGroup', 'powerUps', 'keys', 'blockEmitter', 'bounceTile', 'levelTimer', 'score', 'finishLine', 'touchControls'];
-        whatThisHad.forEach(key => {
-            if (ignore.indexOf(key) === -1 && this[key]) {
-                switch (key) {
-                    case 'enemyGroup':
-                    case 'music':
-                    case 'map':
-                        this[key].destroy();
-                        break;
-                }
-                this[key] = null;
-            }
-        });
-    }
+    
 }
 
 export default GameScene;
